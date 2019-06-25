@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default function Participant(props){
-    console.log(props);
-    let session = "left session";
+    console.log('line 4 Participant',  props);
+    let session= 'left session';
     if(props.inSession){
         if(props.onStage){
             session = 'on stage';
@@ -10,7 +10,7 @@ export default function Participant(props){
         else{
             session = 'in session'
         }
-    }
+    }  
 
     return (
         <div className= 'Participant'>

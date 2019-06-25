@@ -10,7 +10,7 @@ function App(props) {
     console.log('inSession, '+ peep.inSession);
 
     return (
-      <Participant name={peep.name} avatar={peep.avatar} session={peep.inSession}/>
+      <Participant name={peep.name} avatar={peep.avatar} foo='bar' inSession={peep.inSession} onStage={peep.onStage}/>
     )
   });
   console.log(output);
