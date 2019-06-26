@@ -1,22 +1,28 @@
 import React from 'react';
 
-export default function Participant(props){
-    console.log('line 4 Participant',  props);
-    let session= 'left session';
-    if(props.inSession){
-        if(props.onStage){
-            session = 'on stage';
-        }
-        else{
-            session = 'in session'
-        }
-    }  
+
+function Participant(props){
+
+    console.log(props.participants);
+
+    const generateParticipants = () => {
+        return props.participants.map((participant, key) => {
+            let status;
+            if (!participant.inSession) status = 'left session';
+            participant.onStage ? status = 'on stage' : status = 'in session';
+            return (
+                <div key={key} className='Participant'>
+                    <img src={participant.avatar} alt='avatar of participant'></img>
+                    <h3>{participant.name}</h3>
+                    <p>{status}</p>
+                </div>
+            )
+        })
+    };
 
     return (
-        <div className= 'Participant'>
-            <img src={props.avatar} alt='avatar of participant'></img>
-            <h3>{props.name}</h3>
-            <p>{session}</p>
-        </div>
+        generateParticipants()
     )
 }
+
+export default Participant;
